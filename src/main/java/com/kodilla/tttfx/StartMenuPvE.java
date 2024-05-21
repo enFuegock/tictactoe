@@ -21,14 +21,14 @@ public class StartMenuPvE extends Application {
         pveClassic.setOnAction(event -> {
             Classic ticTacToe = new Classic(true);
             ticTacToe.start(new Stage());
-            PvEwindow.close(); // Zamknięcie okna startowego po uruchomieniu gry
+            PvEwindow.close();
         });
 
         Button pveToFive = new Button("To Five (10x10)");
         pveToFive.setOnAction(event -> {
             ToFive ticTacToe = new ToFive(true);
             ticTacToe.start(new Stage());
-            PvEwindow.close(); // Zamknięcie okna startowego po uruchomieniu gry
+            PvEwindow.close();
         });
 
         VBox vboxMid = new VBox(10, playerLabel, pveClassic, pveToFive);

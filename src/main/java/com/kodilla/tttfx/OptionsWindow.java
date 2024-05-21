@@ -1,5 +1,4 @@
 package com.kodilla.tttfx;
-import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -14,7 +13,7 @@ public class OptionsWindow extends MainBrain {
 
     @Override
     public void start(Stage optionsStage) {
-        VBox menu = new VBox();
+
         Label playerXnameLabel = new Label("Enter Player X name:");
         TextField playerXnameInput = new TextField("");
         Label playerOnameLabel = new Label("Enter Player O name:");

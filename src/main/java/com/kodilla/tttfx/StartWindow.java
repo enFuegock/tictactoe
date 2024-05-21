@@ -72,14 +72,12 @@ public class StartWindow extends MainBrain {
                 GameState gameState = (GameState) in.readObject();
                 setLoadedGameState(gameState);
 
-                // Przywróć stan gry
                 currentPlayer = gameState.getCurrentPlayer();
                 playerXpoints = gameState.getPlayerXpoints();
                 playerOpoints = gameState.getPlayerOpoints();
                 pointLimit = gameState.getPointLimit();
                 vsComputer = gameState.isVsComputer();
 
-                // Odtwórz planszę
                 int boardSize = gameState.getBoardSize();
                 buttons = new Button[boardSize][boardSize];
                 GridPane gridPane = new GridPane();

@@ -25,7 +25,6 @@ public class GameState implements Serializable {
         this.boardSize = boardSize;
     }
 
-    // Getters and setters
     public char[][] getBoard() {
         return board;
     }

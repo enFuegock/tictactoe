@@ -21,14 +21,14 @@ public class StartMenuPvP extends Application {
         pvpClassic.setOnAction(event -> {
             Classic ticTacToe = new Classic(false);
             ticTacToe.start(new Stage());
-            PvPwindow.close(); // Zamknięcie okna startowego po uruchomieniu gry
+            PvPwindow.close();
         });
 
         Button pvpToFive = new Button("To Five (10x10)");
         pvpToFive.setOnAction(event -> {
             ToFive ticTacToe = new ToFive(false);
             ticTacToe.start(new Stage());
-            PvPwindow.close(); // Zamknięcie okna startowego po uruchomieniu gry
+            PvPwindow.close();
         });
 
         VBox vboxMid = new VBox(10, playerLabel, pvpClassic, pvpToFive);

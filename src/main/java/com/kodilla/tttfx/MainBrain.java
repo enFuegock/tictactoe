@@ -415,8 +415,6 @@ public abstract class MainBrain extends Application {
         return true;
     }
 
-
-
     @Override
     public void start(Stage primaryStage) {
     }

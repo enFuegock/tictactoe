@@ -5,7 +5,6 @@ public class AppState extends MainBrain {
     private String playerXname = "Player1";
     private String playerOname = "Player2";
     private int pointLimit;
-
     private AppState() { }
 
     public static AppState getInstance() {

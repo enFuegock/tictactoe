@@ -86,8 +86,6 @@ public class Classic extends MainBrain {
         primaryStage.show();
     }
 
-
-
     public static void main(String[] args) {
         launch(args);
     }
