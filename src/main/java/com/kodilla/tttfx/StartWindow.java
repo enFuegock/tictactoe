@@ -63,8 +63,8 @@ public class StartWindow extends MainBrain {
 
     protected void loadGame() {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Wczytaj grę");
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Pliki zapisu gry", "*.sav"));
+        fileChooser.setTitle("Load game");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Save file", "*.sav"));
         File file = fileChooser.showOpenDialog(null);
 
         if (file != null) {
