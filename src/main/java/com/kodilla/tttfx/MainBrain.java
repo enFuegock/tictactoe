@@ -117,7 +117,7 @@ public abstract class MainBrain extends Application {
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("highscores.sav"))) {
             highScores = (List<HighScore>) in.readObject();
         } catch (IOException | ClassNotFoundException e) {
-            // jeśli plik nie istnieje lub jest pusty, zwróć pustą listę
+
         }
         return highScores;
     }
@@ -161,29 +161,7 @@ public abstract class MainBrain extends Application {
     }
 
 
-    /*
-    protected void computerMove() {
-        Random random = new Random();
-        int row, col;
-        do {
-            row = random.nextInt(buttons.length);
-            col = random.nextInt(buttons.length);
-        } while (!buttons[row][col].getText().isEmpty() && !gameOver);
 
-        if (!gameOver) {
-            buttons[row][col].setText(String.valueOf(currentPlayer));
-            if (checkWin3x3()) {
-                addScore();
-                if (!gameOver) {
-                    showRoundWinnerDialog("Player " + currentPlayer + " won round!");
-                }
-            } else {
-                switchPlayer();
-            }
-        }
-    }
-
-     */
 
     protected boolean isDraw() {
         for (int i = 0; i < buttons.length; i++) {
@@ -285,6 +263,53 @@ public abstract class MainBrain extends Application {
         }
     }
 
+
+
+
+
+    protected boolean checkWin10x10() {
+        for (int i = 0; i <= 5; i++) {
+            for (int j = 0; j <= 5; j++) {
+                if (checkWinLine10x10(i, j, 0, 1)) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i <= 5; i++) {
+            for (int j = 0; j <= 5; j++) {
+                if (checkWinLine10x10(j, i, 1, 0)) {
+                    return true;
+                }
+            }
+        }
+        for (int i = 0; i <= 5; i++) {
+            for (int j = 0; j <= 5; j++) {
+                if (checkWinLine10x10(i, j, 1, 1) || checkWinLine10x10(i, 9 - j, 1, -1)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    protected boolean checkWinLine10x10(int row, int col, int dRow, int dCol) {
+        String target = buttons[row][col].getText();
+        for (int i = 0; i < 5; i++) {
+            if (!buttons[row][col].getText().equals(target) || buttons[row][col].getText().isBlank()) {
+                return false;
+            }
+            row += dRow;
+            col += dCol;
+        }
+        return true;
+    }
+
+    @Override
+    public void start(Stage primaryStage) {
+    }
+}
+
+
+
 /*
     protected void createBoard(GridPane gridPane) {
         buttons = new Button[3][3];
@@ -351,11 +376,31 @@ public abstract class MainBrain extends Application {
             }
         }
     }
-
-
-
-
  */
+
+    /*
+    protected void computerMove() {
+        Random random = new Random();
+        int row, col;
+        do {
+            row = random.nextInt(buttons.length);
+            col = random.nextInt(buttons.length);
+        } while (!buttons[row][col].getText().isEmpty() && !gameOver);
+
+        if (!gameOver) {
+            buttons[row][col].setText(String.valueOf(currentPlayer));
+            if (checkWin3x3()) {
+                addScore();
+                if (!gameOver) {
+                    showRoundWinnerDialog("Player " + currentPlayer + " won round!");
+                }
+            } else {
+                switchPlayer();
+            }
+        }
+    }
+
+
     protected void computerMove10x10() {
 
         Random random = new Random();
@@ -376,46 +421,4 @@ public abstract class MainBrain extends Application {
         }
     }
 
-
-
-
-    protected boolean checkWin10x10() {
-        for (int i = 0; i <= 5; i++) {
-            for (int j = 0; j <= 5; j++) {
-                if (checkWinLine10x10(i, j, 0, 1)) {
-                    return true;
-                }
-            }
-        }
-        for (int i = 0; i <= 5; i++) {
-            for (int j = 0; j <= 5; j++) {
-                if (checkWinLine10x10(j, i, 1, 0)) {
-                    return true;
-                }
-            }
-        }
-        for (int i = 0; i <= 5; i++) {
-            for (int j = 0; j <= 5; j++) {
-                if (checkWinLine10x10(i, j, 1, 1) || checkWinLine10x10(i, 9 - j, 1, -1)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-    protected boolean checkWinLine10x10(int row, int col, int dRow, int dCol) {
-        String target = buttons[row][col].getText();
-        for (int i = 0; i < 5; i++) {
-            if (!buttons[row][col].getText().equals(target) || buttons[row][col].getText().isBlank()) {
-                return false;
-            }
-            row += dRow;
-            col += dCol;
-        }
-        return true;
-    }
-
-    @Override
-    public void start(Stage primaryStage) {
-    }
-}
+    */
